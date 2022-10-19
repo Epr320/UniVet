@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Página de Inicio</title>
+</h:head>
+<h:body>
+    <p:messages id="messages" showDetail="true" closable="true">
+        <p:autoUpdate/>
+    </p:messages>
+    <h1>Video Usabilidad del sistema</h1>
+    <div id="contenido">
+        <div class="card">
+            <h5>MP4</h5>
+            <p:video value="https://www.w3schools.com/html/mov_bbb.mp4"
+                     player="mp4"
+                     controls="true"
+                     width="420"
+                     height="250"
+                     onplay="console.log('MP4 Started Playing')"
+                     onpause="console.log('MP4 Stopped Playing')">
+                Your browser does not support the video element.
+                See: <h:outputLink value="https://www.w3schools.com/html/html5_video.asp">HTML5 Video</h:outputLink>
+            </p:video>
+        </div>
+
+    </div>
+</h:body>
+</html>
