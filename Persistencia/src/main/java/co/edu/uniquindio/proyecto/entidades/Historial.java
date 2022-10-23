@@ -24,4 +24,5 @@ public class Historial implements Serializable {
 
     @ManyToOne
     private Empleado empleado;
+
 }
