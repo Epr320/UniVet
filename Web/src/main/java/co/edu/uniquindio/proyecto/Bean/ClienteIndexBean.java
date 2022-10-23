@@ -17,7 +17,7 @@ import java.io.Serializable;
 @ViewScoped
 public class ClienteIndexBean implements Serializable {
 
-    @Value("#{param['cedular']}")
+    @Value("#{param['cedula']}")
     private String cedula;
 
     @Getter @Setter
@@ -28,7 +28,6 @@ public class ClienteIndexBean implements Serializable {
 
     @PostConstruct
     public void inicializar() {
-
     }
     public String CrearResenia(){
         return "Resenias?faces-redirect=true&amp;cedula="+cedula;
