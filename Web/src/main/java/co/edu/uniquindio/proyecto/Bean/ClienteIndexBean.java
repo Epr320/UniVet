@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.annotation.AliasFor;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +18,7 @@ import java.io.Serializable;
 @ViewScoped
 public class ClienteIndexBean implements Serializable {
 
-    @Value("#{param['cedular']}")
+    @Value("#{param['cedula']}")
     private String cedula;
 
     @Getter @Setter
@@ -26,12 +27,18 @@ public class ClienteIndexBean implements Serializable {
     @Autowired
     ClienteServicio clienteServicio;
 
+    @Autowired
+    IniciarSesionBean iniciarSesionBean;
+
     @PostConstruct
     public void inicializar() {
-
+       // clienteServicio.obtenerCliente(cedula);
     }
     public String CrearResenia(){
         return "Resenias?faces-redirect=true&amp;cedula="+cedula;
+    }
+    public String VerHospitalizaciones(){
+        return "historialHospitalizacion?faces-redirect=true&amp;cedula="+cedula;
     }
 
     public String VerManual(){

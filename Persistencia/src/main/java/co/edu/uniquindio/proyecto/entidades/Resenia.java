@@ -22,7 +22,6 @@ public class Resenia implements Serializable {
     private Integer id;
 
     @Column(nullable = false)
-    @Length(min=3, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")
     @NotBlank
     private String resenia;
 

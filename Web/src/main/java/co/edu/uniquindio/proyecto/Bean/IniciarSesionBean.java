@@ -22,6 +22,7 @@ import java.util.Date;
 @ViewScoped
 public class IniciarSesionBean implements Serializable {
 
+    @Getter
     @Value("#{param['cedula']}")
     private String cedula;
 
@@ -53,7 +54,7 @@ public class IniciarSesionBean implements Serializable {
             tipoPersona = personaServicio.verificarTipoDeUsuario(correo);
             if(tipoPersona==3){
                 Cliente cliente=clienteServicio.login(correo,contraseña);
-                return "cliente_index?faces-redirect=true&amp;cedular="+cliente.getCedula();
+                return "cliente_index?faces-redirect=true&amp;cedula="+cliente.getCedula();
             }
             if(tipoPersona==2){
                 Empleado empleado = empleadoServicio.login(correo,contraseña);
@@ -61,11 +62,11 @@ public class IniciarSesionBean implements Serializable {
                 historial.setEmpleado(empleado);
                 historial.setDate(LocalDateTime.now());
                 historialServicio.agregarHistorial(historial);
-                return "empleado_index.xhtml?faces-redirect=true&amp;cedular="+empleado.getCedula();
+                return "empleado_index.xhtml?faces-redirect=true&amp;cedula="+empleado.getCedula();
             }
             if(tipoPersona==1){
                 Administrador administrador = administradorServicio.login(correo,contraseña);
-                return "administrador_index.xhtml?faces-redirect=true&amp;cedular="+administrador.getCedula();
+                return "administrador_index.xhtml?faces-redirect=true&amp;cedula="+administrador.getCedula();
             }
         } catch (Exception e) {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Alerta", e.getMessage());
@@ -79,6 +80,6 @@ public class IniciarSesionBean implements Serializable {
         return "RegistrarUsuario.xhtml?faces-redirect=true&amp";
     }
     public String CrearResenia(){
-        return "Resenias?faces-redirect=true&amp;cedular="+cedula;
+        return "Resenias?faces-redirect=true&amp;cedula="+cedula;
     }
 }

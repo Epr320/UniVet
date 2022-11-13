@@ -25,6 +25,8 @@ public class ReseniasBean implements Serializable {
     private ClienteServicio clienteServicio;
 
     @Autowired
+    ClienteIndexBean clienteIndexBean;
+    @Autowired
     private ReseniaServicio reseniaServicio;
 
     @Setter @Getter
